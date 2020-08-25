@@ -1,8 +1,23 @@
 {% extends 'base.html' %}
-
-
 {% block content %}
 
+<br/>
+<br/>
+
+{% if api %}
+  {% if api == "ERROR..."%}
+    Ticker symbol not recognized. Please enter a new symbol
+  {% else%}
+
+    {% for key, value in api.items %}
+      {{key}}: {{ value }}<br/>
+    {% endfor %}
+
+
+
+
+  {% endif %}
+{% endif %}
 
 
 
