@@ -1,17 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<br/>
-<br/>
+{% if ticker %}
+  {{ ticker }}
+{% endif %}
 
 {% if api %}
   {% if api == "ERROR..."%}
     Ticker symbol not recognized. Please enter a new symbol
-  {% else%}
+  {% else %}
 
-    {% for key, value in api.items %}
-      {{key}}: {{ value }}<br/>
-    {% endfor %}
+    
+
+    <h1>{{ api.companyName }}</h1><br/>
+    Price: ${{ api.latestPrice }}<br/>
+    Previous Close: ${{ api.previousClose }}<br/>
+    Market Cap: ${{ api.marketCap }}<br/>
+    Year to date change: %{{ api.ytdChange }}<br/>
+    52 week high: ${{ api.week52High}}<br/>
+    52 week low: ${{ api.week52Low }}<br/>
+
 
 
 
