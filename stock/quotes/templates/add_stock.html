@@ -12,11 +12,47 @@
 </form>
 
 
-<br/>
+<br/><br/>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Company Name</th>
+      <th scope="col">Stock Price</th>
+      <th scope="col">Previous Close</th>
+      <th scope="col">Market Cap</th>
+      <th scope="col">YTD Change</th>
+      <th scope="col">52 week high</th>
+      <th scope="col">52 week low</th>
+      <th scope="col">Delete Stock</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for item in ticker %}
+
+      <tr>
+        <th scope="row">{{ item }}</th>
+        <td>Stuff</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td><a href="{% url 'delete' item.id %}"> Delete Stock</a></td>
+      </tr>
+    {% endfor %}
+
+  
+  </tbody>
+</table>
+
+
+
 
 
 {% for item in ticker %}
-  {{ item }} | <a href="{% url 'delete' item.id %}"> Delete Stock</a> <br/>
+  {{ item }} - <a href="{% url 'delete' item.id %}"> Delete Stock</a> <br/>
 {% endfor %}
 
 
